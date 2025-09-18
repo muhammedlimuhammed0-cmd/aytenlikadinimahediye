@@ -7,13 +7,14 @@ body {
   justify-content: center;
   align-items: center;
   background: url("images/bg1.jpg") no-repeat center center/cover;
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Arial', sans-serif;
+  color: #fff;
 }
 
 /* Kart kutusu */
 .card {
   width: 400px;
-  height: 250px;
+  height: 300px;
   perspective: 1000px;
 }
 
@@ -48,45 +49,42 @@ body {
 /* Ön yüz */
 .card-front {
   background: rgba(0, 0, 0, 0.7);
-  color: #fff;
 }
 
 .card-front h1 {
-  font-size: 28px;
+  font-size: 24px;
   margin-bottom: 10px;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
 }
 
 .card-front p {
   font-size: 16px;
-  color: #f1f1f1;
+  color: #ddd;
 }
 
 /* Arka yüz */
 .card-back {
-  background: rgba(255, 182, 193, 0.9);
+  background: rgba(255, 255, 255, 0.1);
   transform: rotateY(180deg);
-  color: #fff;
 }
 
 .card-back h2 {
-  font-size: 26px;
-  margin-bottom: 10px;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+  font-size: 22px;
+  margin-bottom: 15px;
 }
 
 .card-back p {
-  font-size: 16px;
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: #f5f5f5;
 }
 
 /* Sayaç */
 #counter {
-  margin-top: 15px;
-  font-size: 20px;
+  margin-top: 10px;
+  font-size: 18px;
   font-weight: bold;
-  color: #ff3366;
+  color: #fff;
   text-align: center;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
   animation: pulse 1.5s infinite;
 }
 
@@ -96,4 +94,3 @@ body {
   50% { transform: scale(1.1); }
   100% { transform: scale(1); }
 }
-;
