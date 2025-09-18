@@ -1,49 +1,58 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Doğum Günün Kutlu Olsun Güzelim</title>
-  <link rel="stylesheet" href="style.css" />
+  <!-- cache sorununu kırmak için versiyon ekliyoruz -->
+  <link rel="stylesheet" href="style.css?v=3" />
 </head>
 <body>
-  <!-- KART -->
-  <div class="card" id="card" onclick="flipCard()">
-    <div class="card-inner">
-      <!-- ÖN YÜZ -->
-      <section class="card-face card-front" aria-label="Ön yüz">
-        <h1>Doğum Günün Kutlu Olsun Güzelim</h1>
-        <p class="hint">açmak için tıkla</p>
-      </section>
-
-      <!-- ARKA YÜZ -->
-      <section class="card-face card-back" aria-label="Arka yüz">
-        <h2>iyi ki varsın</h2>
-
-        <div class="content">
-          <p>
-            Güzelim büyük ihtimalle bu mesajın ne için olduğunu tahmin ediyorsundur belki yanında olamıyorum bu günde ama en azından uzaktanda olsa kutlamak istedim doğum günün kutlu olsun bebeğim benim birlikte olduğumuz 284. günümüz belkide en özel olanı çünkü bu güne kadar yaşadıklarımızı düşündükçe senin yanımda oluşun bana verdiğin güç ve bizim sevgimizin her şeye rağmen ayakta kalışı geliyor aklıma biz kavgalar yaşadık yanlış anlaştık kırıldık ama sonunda yine birbirimize döndük çünkü kalplerimiz her defasında birbirini seçti iki defa ayrıldık ama ikimizde biliyorduk ki bu hikaye burada bitmeyecek ben seninle yaşadığım her anın kıymetini anladım sen benim hayatımda karşıma çıkan en değerli şey oldun
-          </p>
-          <p>
-            benim için en unutulmaz şeylerden biri hastalığımda bana verdiğin destektir sen yanımda değildin belki ama varlığını hissettirdin bana güç verdin sözlerinle varlığınla benim pes etmemi engelledin sen olmasaydın belki de o dönemi bu kadar kolay atlatamazdım sen bana sadece sevgili değil en büyük dost en sağlam destek oldun ben seninle beraber olunca hiçbir şeyden korkmuyorum çünkü biliyorum ki sen varsın
-          </p>
-          <p>
-            mesafeler kolay değil biliyorum sana sarılmayı gözlerinin içine bakmayı o anı senin yanında yaşamayı çok isterdim ama biz mesafeyle de sınandık ve gördük ki sevgimiz daha da büyüyor uzaklık bizi zayıflatmadı tam tersine daha da güçlendirdi çünkü seni özledikçe sana olan sevgim çoğaldı seni düşündükçe yanımda hissettim senin gülüşün gözümün önünde canlandığında içimden bir huzur yayıldı sen bana her gün yeniden umut verdin
-          </p>
-          <p>
-            bugün doğum günün ve ben sana sadece iyi ki doğdun demek istemiyorum iyi ki varsın iyi ki bu hayatta yollarımız kesişti iyi ki bana sevgiyi böylesine güçlü yaşattın seninle olduğum için her gün şükrediyorum biz kolay bir yol seçmedik kavgalardan geçtik ayrılıklardan geçtik mesafelerden geçiyoruz ama her şeye rağmen buradayız yan yanayız kalplerimiz hala birbirine bağlı ve ben biliyorum ki bu bizi çok daha özel kılıyor
-          </p>
-          <p>
-            benim dileğim bundan sonraki bütün doğum günlerini yanında geçirmek sana sarılıp gözlerinin içine bakarak kutlamak birlikte yılları devirmek biz belki şimdi uzaktayız ama bir gün bu mesafe bitecek ve işte o zaman hiçbir şey aramıza giremeyecek ben o günü hayal ediyorum ve içimden diyorum ki her şeye değdi seninle olmak bana hayatımın en güzel tarafın
-          </p>
-
-          <p class="gift">seninle geçen her gün bir armağan</p>
-          <p id="counter" class="counter">🤍</p>
+  <main class="page">
+    <!-- KART -->
+    <section class="card" id="card" aria-label="Kutlama kartı">
+      <div class="card-inner">
+        <!-- ÖN YÜZ -->
+        <div class="face front" aria-label="Kartın ön yüzü">
+          <h1>Doğum Günün Kutlu Olsun Güzelim</h1>
+          <p class="hint">kartı açmak için tıkla</p>
         </div>
-      </section>
-    </div>
-  </div>
 
-  <script src="script.js"></script>
+        <!-- ARKA YÜZ -->
+        <div class="face back" aria-label="Kartın arka yüzü">
+          <header class="back-head">
+            <h2>İyi ki varsın</h2>
+          </header>
+
+          <!-- UZUN METİN + SAYAÇ -->
+          <article class="content" tabindex="0">
+            <p>
+              Güzelim büyük ihtimalle bu mesajın ne için olduğunu tahmin ediyorsundur belki yanında olamıyorum bu günde ama en azından uzaktanda olsa kutlamak istedim doğum günün kutlu olsun bebeğim benim birlikte olduğumuz 284. günümüz belkide en özel olanı çünkü bu güne kadar yaşadıklarımızı düşündükçe senin yanımda oluşun bana verdiğin güç ve bizim sevgimizin her şeye rağmen ayakta kalışı geliyor aklıma biz kavgalar yaşadık yanlış anlaştık kırıldık ama sonunda yine birbirimize döndük çünkü kalplerimiz her defasında birbirini seçti iki defa ayrıldık ama ikimizde biliyorduk ki bu hikaye burada bitmeyecek ben seninle yaşadığım her anın kıymetini anladım sen benim hayatımda karşıma çıkan en değerli şey oldun
+            </p>
+            <p>
+              benim için en unutulmaz şeylerden biri hastalığımda bana verdiğin destektir sen yanımda değildin belki ama varlığını hissettirdin bana güç verdin sözlerinle varlığınla benim pes etmemi engelledin sen olmasaydın belki de o dönemi bu kadar kolay atlatamazdım sen bana sadece sevgili değil en büyük dost en sağlam destek oldun ben seninle beraber olunca hiçbir şeyden korkmuyorum çünkü biliyorum ki sen varsın
+            </p>
+            <p>
+              mesafeler kolay değil biliyorum sana sarılmayı gözlerinin içine bakmayı o anı senin yanında yaşamayı çok isterdim ama biz mesafeyle de sınandık ve gördük ki sevgimiz daha da büyüyor uzaklık bizi zayıflatmadı tam tersine daha da güçlendirdi çünkü seni özledikçe sana olan sevgim çoğaldı seni düşündükçe yanımda hissettim senin gülüşün gözümün önünde canlandığında içimden bir huzur yayıldı sen bana her gün yeniden umut verdin
+            </p>
+            <p>
+              bugün doğum günün ve ben sana sadece iyi ki doğdun demek istemiyorum iyi ki varsın iyi ki bu hayatta yollarımız kesişti iyi ki bana sevgiyi böylesine güçlü yaşattın seninle olduğum için her gün şükrediyorum biz kolay bir yol seçmedik kavgalardan geçtik ayrılıklardan geçtik mesafelerden geçiyoruz ama her şeye rağmen buradayız yan yanayız kalplerimiz hala birbirine bağlı ve ben biliyorum ki bu bizi çok daha özel kılıyor
+            </p>
+            <p>
+              benim dileğim bundan sonraki bütün doğum günlerini yanında geçirmek sana sarılıp gözlerinin içine bakarak kutlamak birlikte yılları devirmek biz belki şimdi uzaktayız ama bir gün bu mesafe bitecek ve işte o zaman hiçbir şey aramıza giremeyecek ben o günü hayal ediyorum ve içimden diyorum ki her şeye değdi seninle olmak bana hayatımın en güzel tarafın
+            </p>
+
+            <p class="gift">seninle geçen her gün bir armağan</p>
+            <p id="counter" class="counter"></p>
+          </article>
+        </div>
+      </div>
+
+      <!-- Buton yerine tüm karta tıklama (JS aşağıda) -->
+      <button class="cover" id="toggle" aria-label="Kartı aç/kapat"></button>
+    </section>
+  </main>
+
+  <script src="script.js?v=3"></script>
 </body>
 </html>
