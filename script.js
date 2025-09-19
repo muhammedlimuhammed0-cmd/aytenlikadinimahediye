@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const book = document.querySelector('.book');
+    // Gerekli HTML elementlerini seç
     const pages = document.querySelectorAll('.page');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
@@ -8,19 +8,20 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentPageIndex = 0;
     const totalPages = pages.length;
 
-    // Set initial z-index for pages
+    // Sayfaların doğru sırada üst üste gelmesi için z-index ayarı
     pages.forEach((page, index) => {
         page.style.zIndex = totalPages - index;
     });
 
-    // --- Page Flip Logic ---
+    // Butonların durumunu güncelle (ilk/son sayfada pasif yap)
     function updateButtons() {
         prevBtn.disabled = currentPageIndex === 0;
         nextBtn.disabled = currentPageIndex >= totalPages - 1;
     }
 
+    // Sonraki sayfaya git
     function goNextPage() {
-        if (currentPageIndex < totalPages -1) {
+        if (currentPageIndex < totalPages - 1) {
             const currentPage = pages[currentPageIndex];
             currentPage.classList.add('flipped');
             currentPageIndex++;
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Önceki sayfaya git
     function goPrevPage() {
         if (currentPageIndex > 0) {
             currentPageIndex--;
@@ -36,28 +38,28 @@ document.addEventListener('DOMContentLoaded', () => {
             updateButtons();
         }
     }
-
-    // Event Listeners for buttons
-    prevBtn.addEventListener('click', goPrevPage);
-    nextBtn.addEventListener('click', goNextPage);
-
-    // --- Day Counter Logic ---
+    
+    // Gün sayacını hesapla ve güncelle
     function updateDayCounter() {
         const startDate = new Date('2024-12-09T00:00:00');
         const today = new Date();
         
-        // To calculate the time difference of two dates
+        // Zaman farkını milisaniye olarak al
         const timeDifference = today.getTime() - startDate.getTime();
         
-        // To calculate the no. of days between two dates
-        const dayDifference = Math.floor(timeDifference / (1000 * 3600 * 24));
+        // Milisaniyeyi güne çevir ve 1 ekleyerek kaçıncı gün olduğunu bul
+        const dayCount = Math.floor(timeDifference / (1000 * 3600 * 24)) + 1;
         
         if (dayCounterEl) {
-            dayCounterEl.textContent = `9 Aralık 2024’ten bu yana geçen gün: ${dayDifference} gün ❤️`;
+            dayCounterEl.innerHTML = `Bugün bizim <br> ${dayCount}. günümüz ❤️`;
         }
     }
 
-    // Initial calls
+    // Butonlara tıklama olaylarını ekle
+    prevBtn.addEventListener('click', goPrevPage);
+    nextBtn.addEventListener('click', goNextPage);
+
+    // Başlangıçta fonksiyonları çağır
     updateButtons();
     updateDayCounter();
 });
