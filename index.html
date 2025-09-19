@@ -1,76 +1,55 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Doğum Günün Kutlu Olsun Güzelim</title>
-  <link rel="stylesheet" href="style.css?v=book-final" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İyi ki Varsın</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="page">
-    <!-- KART -->
-    <section class="card" id="card" aria-label="Kutlama kartı">
-      <div class="card-inner">
-        <!-- ÖN KAPAK -->
-        <div class="face front">
-          <h1>Doğum Günün Kutlu Olsun Güzelim</h1>
-          <p class="hint">kartı açmak için tıkla</p>
-        </div>
-
-        <!-- ARKA: KİTAP -->
-        <div class="face back">
-          <section class="book" id="book" aria-live="polite">
-            <!-- Sol & Sağ kapak -->
-            <div class="hard left"></div>
-            <div class="hard right"></div>
-
-            <!-- SAYFA 1 -->
-            <div class="page" data-page="1">
-              <div class="paper">
-                <h2 class="big-title">
-                  DÜNYANIN EN GÜZEL SEVGİLİSİNE, İYİ Kİ VARSIN HAYATIM 🤍
-                </h2>
-                <div class="collage">
-                  <img class="ph ph1" src="images/dogum%20gunu%202.png" alt="resim1" />
-                  <img class="ph ph2" src="images/dogum%20gunu%203.jpg" alt="resim2" />
-                  <img class="ph ph3" src="images/dogum%20gunu%204.jpg" alt="resim3" />
-                  <img class="ph ph4" src="images/d895d152858067f48a8c18ccd67c3afa.jpg" alt="resim4" />
-                </div>
-                <p class="tap-hint">devam etmek için tıkla</p>
-              </div>
-            </div>
-
-            <!-- SAYFA 2 -->
-            <div class="page" data-page="2">
-              <div class="paper paper-text">
-                <h3>İyi ki varsın</h3>
-                <p>
-                  Güzelim büyük ihtimalle bu mesajın ne için olduğunu tahmin ediyorsundur belki yanında olamıyorum bu günde ama en azından uzaktanda olsa kutlamak istedim doğum günün kutlu olsun bebeğim benim
-                  birlikte olduğumuz 284. günümüz belkide en özel olanı çünkü bu güne kadar yaşadıklarımızı düşündükçe senin yanımda oluşun bana verdiğin güç ve bizim sevgimizin her şeye rağmen ayakta kalışı geliyor aklıma.
-                </p>
-                <p>
-                  Biz kavgalar yaşadık, yanlış anlaştık, kırıldık ama sonunda yine birbirimize döndük çünkü kalplerimiz her defasında birbirini seçti. İki defa ayrıldık ama ikimiz de biliyorduk ki bu hikaye burada bitmeyecek. Sen bana sadece sevgili değil, en büyük dost, en sağlam destek oldun.
-                </p>
-                <p>
-                  Mesafeler kolay değil; sana sarılmayı, gözlerinin içine bakmayı çok isterdim ama biz mesafeyle de sınandık ve gördük ki sevgimiz daha da büyüyor…
-                </p>
-
-                <p class="gift">seninle geçen her gün bir armağan</p>
-                <p id="counter" class="counter">…</p>
-              </div>
-            </div>
-          </section>
-
-          <!-- NAV -->
-          <div class="nav">
-            <button id="prev" aria-label="Önceki sayfa">‹</button>
-            <div class="dots" id="dots"></div>
-            <button id="next" aria-label="Sonraki sayfa">›</button>
-          </div>
-        </div>
+  <div class="book">
+    <!-- Sayfa 1 -->
+    <div class="page active">
+      <h1>DÜNYANIN EN GÜZEL SEVGİLİSİNE,<br>İYİ Kİ VARSIN HAYATIM 🤍</h1>
+      <div class="gallery">
+        <img src="images/dogum gunu 2.png" alt="foto1">
+        <img src="images/dogum gunu 3.jpg" alt="foto2">
+        <img src="images/dogum gunu 4.jpg" alt="foto3">
+        <img src="images/d895d152858067f48a8c18ccd67c3afa.jpg" alt="foto4">
       </div>
-    </section>
-  </main>
-  <script src="script.js?v=book-final"></script>
+    </div>
+
+    <!-- Sayfa 2 -->
+    <div class="page">
+      <h2>İyi ki varsın</h2>
+      <p>
+        Güzelim büyük ihtimalle bu mesajın ne için olduğunu tahmin ediyorsundur belki yanında olamıyorum bu günde ama en azından uzaktanda olsa kutlamak istedim doğum günün kutlu olsun bebeğim benim birlikte olduğumuz 284. günümüz belkide en özel olanı çünkü bu güne kadar yaşadıklarımızı düşündükçe senin yanımda oluşun bana verdiğin güç ve bizim sevgimizin her şeye rağmen ayakta kalışı geliyor aklıma.
+      </p>
+      <p>
+        Biz kavgalar yaşadık, yanlış anlaştık, kırıldık ama sonunda yine birbirimize döndük çünkü kalplerimiz her defasında birbirini seçti. İki defa ayrıldık ama ikimiz de biliyorduk ki bu hikaye burada bitmeyecek. Sen bana sadece sevgili değil, en büyük dost, en sağlam destek oldun.
+      </p>
+    </div>
+
+    <!-- Sayfa 3 -->
+    <div class="page">
+      <h2>Seninle Geçen Günler 🤍</h2>
+      <div class="gallery">
+        <img src="images/dogum gunu 3.jpg" alt="özel foto">
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigasyon -->
+  <div class="controls">
+    <button id="prev">◀</button>
+    <div class="dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+    <button id="next">▶</button>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
