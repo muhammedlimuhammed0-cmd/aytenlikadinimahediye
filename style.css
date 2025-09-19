@@ -1,140 +1,215 @@
-/* Genel */
-* { box-sizing: border-box; }
-html, body { height: 100%; }
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Great+Vibes&display=swap');
+
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  margin: 0;
-  font-family: "Segoe UI", sans-serif;
-  background: radial-gradient(1200px 600px at 50% 10%, #ffeef7, #ffdfe9 45%, #ffd8e6 65%, #ffd1e1 85%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(45deg, #f3e5f5, #e1bee7, #ce93d8);
+    font-family: 'Arial', sans-serif;
+    perspective: 1500px;
+    overflow: hidden;
 }
 
-/* Kitap */
+/* Book Container */
+.book-container {
+    width: 95vw;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .book {
-  position: relative;
-  width: min(95vw, 900px);
-  height: min(80vh, 650px);
-  perspective: 2000px;
+    width: 800px;
+    height: 600px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
-.sheet {
-  position: absolute;
-  width: 50%;
-  height: 100%;
-  right: 0;
-  transform-origin: left center;
-  transform-style: preserve-3d;
-  transition: transform 1.2s cubic-bezier(.77,0,.18,1);
-}
-
-.sheet.flipped { transform: rotateY(-180deg); }
-
+/* Page Styling */
 .page {
-  position: absolute;
-  inset: 0;
-  backface-visibility: hidden;
-  background: #fff;
-  overflow-y: auto;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: left;
+    transform-style: preserve-3d;
+    transition: transform 1s ease-in-out;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
 }
 
-/* Ön yüz */
-.page.front {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+.page .front-page,
+.page .back-page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
 }
 
-/* Arka yüz -> "Love you" deseni */
-.page.back {
-  transform: rotateY(180deg);
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 90px,
-    #fce6ef 90px,
-    #fce6ef 180px
-  );
-  background-image: repeating-linear-gradient(
-    45deg,
-    transparent 0,
-    transparent 80px,
-    #fce6ef 80px,
-    #fce6ef 160px
-  );
-  font-family: 'Dancing Script', cursive;
-  color: rgba(255, 0, 102, 0.12);
-  font-size: 40px;
-  text-align: center;
-  line-height: 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.page.back::before {
-  content: "Love you Love you Love you Love you Love you";
-  white-space: pre-wrap;
-  transform: rotate(-20deg);
+.page .front-page {
+    background-color: #fdfaf6;
+    z-index: 1;
 }
 
-/* İçerikler */
-.headline {
-  text-align: center;
-  font-size: clamp(22px, 3vw, 36px);
-  margin-bottom: 20px;
-}
-.collage {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-}
-.collage img {
-  width: 100%;
-  border-radius: 10px;
-}
-.reading {
-  font-size: clamp(14px, 2.5vw, 17px);
-  line-height: 1.6;
-  text-align: justify;
-}
-.single-photo img {
-  max-width: 80%;
-  border-radius: 12px;
+.page .back-page {
+    background-color: #fdfaf6;
+    transform: rotateY(180deg);
+    z-index: 0;
 }
 
-/* Sayaç */
-.counter {
-  font-weight: 700;
-  font-size: 18px;
-  margin: 10px 0 20px;
-}
-.counter::before, .counter::after {
-  content: "🤍";
-  margin: 0 10px;
+/* Flipped State */
+.flipped {
+    transform: rotateY(-180deg);
 }
 
-/* Nav */
-.nav {
-  margin-top: 15px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  justify-content: center;
+/* Cover Page (Page 1) */
+.cover .front-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
 }
-.nav button {
-  border: none;
-  background: #ff5fa2;
-  color: #fff;
-  border-radius: 50%;
-  padding: 12px 18px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: transform .2s;
+
+.cover h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+    color: #583c5a;
+    max-width: 80%;
 }
-.nav button:hover { transform: scale(1.1); }
-.dots { display: flex; gap: 6px; }
-.dot { width: 8px; height: 8px; border-radius: 50%; background:#ddd; }
-.dot.active { background:#ff5fa2; }
+
+.cover-img {
+    position: absolute;
+    width: 120px;
+    height: auto;
+    border: 5px solid white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-radius: 8px;
+}
+.cover-img.img1 { top: 10%; left: 15%; transform: rotate(-15deg); }
+.cover-img.img2 { bottom: 12%; left: 30%; transform: rotate(5deg); }
+.cover-img.img3 { top: 20%; right: 15%; transform: rotate(20deg); }
+
+
+/* Message Page (Page 2) */
+.message-content {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: #4a4a4a;
+    padding-right: 15px; /* for scrollbar */
+}
+.message-content p {
+    margin-bottom: 1.5rem;
+}
+/* Custom scrollbar for message */
+.message-content::-webkit-scrollbar { width: 8px; }
+.message-content::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px;}
+.message-content::-webkit-scrollbar-thumb { background: #ce93d8; border-radius: 10px;}
+.message-content::-webkit-scrollbar-thumb:hover { background: #ba68c8; }
+
+/* Day Counter Page (Page 3) */
+.counter-page {
+    flex-direction: column;
+    text-align: center;
+}
+.counter-page h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.8rem;
+    color: #583c5a;
+    margin-bottom: 2rem;
+}
+.counter-page p {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: #d81b60;
+}
+
+/* Back Page Pattern */
+.love-pattern {
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250' viewBox='0 0 200 200'%3E%3Ctext x='10' y='30' font-family='Dancing Script, cursive' font-size='20' fill='rgba(0,0,0,0.08)' transform='rotate(-20 50 50)'%3ELove you%3C/text%3E%3Ctext x='110' y='130' font-family='Dancing Script, cursive' font-size='20' fill='rgba(0,0,0,0.08)' transform='rotate(-20 150 150)'%3ELove you%3C/text%3E%3C/svg%3E");
+    background-color: #fdfaf6;
+}
+
+
+/* Navigation */
+.navigation {
+    margin-top: 20px;
+    z-index: 1000;
+}
+
+.navigation button {
+    padding: 12px 25px;
+    border: none;
+    background-color: #ab47bc;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.navigation button:hover {
+    background-color: #9c27b0;
+    transform: translateY(-2px);
+}
+.navigation button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: translateY(0);
+}
+
+
+/* Mobile Responsiveness */
+@media (max-width: 850px) {
+    .book {
+        width: 90vw;
+        height: 70vh;
+    }
+
+    .cover h1 {
+        font-size: 1.8rem;
+    }
+
+    .cover-img {
+        width: 80px;
+    }
+
+    .message-content {
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+    
+    .counter-page h2 {
+        font-size: 2rem;
+    }
+    .counter-page p {
+        font-size: 1.5rem;
+    }
+}
