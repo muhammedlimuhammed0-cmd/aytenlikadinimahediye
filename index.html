@@ -1,54 +1,71 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>İyi ki Varsın</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="book">
-    <!-- Sayfa 1 -->
-    <div class="page active">
-      <h1>DÜNYANIN EN GÜZEL SEVGİLİSİNE,<br>İYİ Kİ VARSIN HAYATIM 🤍</h1>
-      <div class="gallery">
-        <img src="images/dogum gunu 2.png" alt="foto1">
-        <img src="images/dogum gunu 3.jpg" alt="foto2">
-        <img src="images/dogum gunu 4.jpg" alt="foto3">
-        <img src="images/d895d152858067f48a8c18ccd67c3afa.jpg" alt="foto4">
+  <main class="stage">
+    <section class="book" id="book" aria-live="polite">
+      <!-- SAYFA 1 (ÖN) -->
+      <div class="sheet" data-sheet="1" style="z-index: 3;">
+        <div class="page front">
+          <div class="padded">
+            <h1 class="headline">
+              DÜNYANIN EN GÜZEL SEVGİLİSİNE, İYİ Kİ VARSIN HAYATIM 🤍
+            </h1>
+
+            <div class="collage">
+              <img class="ph ph1" src="images/dogum gunu 2.png" alt="foto1">
+              <img class="ph ph2" src="images/dogum gunu 3.jpg" alt="foto2">
+              <img class="ph ph3" src="images/dogum gunu 4.jpg" alt="foto3">
+              <img class="ph ph4" src="images/d895d152858067f48a8c18ccd67c3afa.jpg" alt="foto4">
+            </div>
+
+            <p class="tap-hint">sayfayı çevirmek için tıkla / ➜</p>
+          </div>
+        </div>
+        <!-- arka taraf: bilinçli olarak boş sayfa -->
+        <div class="page back"></div>
       </div>
-    </div>
 
-    <!-- Sayfa 2 -->
-    <div class="page">
-      <h2>İyi ki varsın</h2>
-      <p>
-        Güzelim büyük ihtimalle bu mesajın ne için olduğunu tahmin ediyorsundur belki yanında olamıyorum bu günde ama en azından uzaktanda olsa kutlamak istedim doğum günün kutlu olsun bebeğim benim birlikte olduğumuz 284. günümüz belkide en özel olanı çünkü bu güne kadar yaşadıklarımızı düşündükçe senin yanımda oluşun bana verdiğin güç ve bizim sevgimizin her şeye rağmen ayakta kalışı geliyor aklıma.
-      </p>
-      <p>
-        Biz kavgalar yaşadık, yanlış anlaştık, kırıldık ama sonunda yine birbirimize döndük çünkü kalplerimiz her defasında birbirini seçti. İki defa ayrıldık ama ikimiz de biliyorduk ki bu hikaye burada bitmeyecek. Sen bana sadece sevgili değil, en büyük dost, en sağlam destek oldun.
-      </p>
-    </div>
-
-    <!-- Sayfa 3 -->
-    <div class="page">
-      <h2>Seninle Geçen Günler 🤍</h2>
-      <div class="gallery">
-        <img src="images/dogum gunu 3.jpg" alt="özel foto">
+      <!-- SAYFA 2 -->
+      <div class="sheet" data-sheet="2" style="z-index: 2;">
+        <div class="page front">
+          <div class="padded reading">
+            <h2>İyi ki varsın</h2>
+            <p>Güzelim büyük ihtimalle bu mesajın ne için olduğunu tahmin ediyorsundur belki yanında olamıyorum bu günde ama en azından uzaktanda olsa kutlamak istedim doğum günün kutlu olsun bebeğim benim birlikte olduğumuz 284. günümüz belkide en özel olanı çünkü bu güne kadar yaşadıklarımızı düşündükçe senin yanımda oluşun bana verdiğin güç ve bizim sevgimizin her şeye rağmen ayakta kalışı geliyor aklıma.</p>
+            <p>Biz kavgalar yaşadık, yanlış anlaştık, kırıldık ama sonunda yine birbirimize döndük çünkü kalplerimiz her defasında birbirini seçti. İki defa ayrıldık ama ikimiz de biliyorduk ki bu hikaye burada bitmeyecek. Sen bana sadece sevgili değil, en büyük dost, en sağlam destek oldun.</p>
+            <p>Mesafeler kolay değil; sana sarılmayı, gözlerinin içine bakmayı çok isterdim ama biz mesafeyle de sınandık ve gördük ki sevgimiz daha da büyüyor…</p>
+          </div>
+        </div>
+        <div class="page back"></div>
       </div>
-    </div>
-  </div>
 
-  <!-- Navigasyon -->
-  <div class="controls">
-    <button id="prev">◀</button>
-    <div class="dots">
-      <span class="dot active"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
+      <!-- SAYFA 3 -->
+      <div class="sheet" data-sheet="3" style="z-index: 1;">
+        <div class="page front">
+          <div class="padded last">
+            <h2>Seninle Geçen Her Gün Armağan</h2>
+            <p id="counter" class="counter">…</p>
+            <div class="single-photo">
+              <img src="images/dogum gunu 3.jpg" alt="özel foto">
+            </div>
+          </div>
+        </div>
+        <div class="page back"></div>
+      </div>
+    </section>
+
+    <!-- NAV -->
+    <div class="nav">
+      <button id="prev" aria-label="Önceki sayfa">‹</button>
+      <div id="dots" class="dots"></div>
+      <button id="next" aria-label="Sonraki sayfa">›</button>
     </div>
-    <button id="next">▶</button>
-  </div>
+  </main>
 
   <script src="script.js"></script>
 </body>
