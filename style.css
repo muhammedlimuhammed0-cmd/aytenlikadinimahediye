@@ -1,44 +1,38 @@
-/* Import Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Great+Vibes&display=swap');
-
-/* General Styling */
-* {
+/* Genel Ayarlar ve Fontlar */
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: linear-gradient(45deg, #f3e5f5, #e1bee7, #ce93d8);
-    font-family: 'Arial', sans-serif;
-    perspective: 1500px;
+    background: #fce4ec; /* Romantik bir pembe tonu */
+    font-family: 'Playfair Display', serif; /* Düz ve şık font */
+    perspective: 1800px;
     overflow: hidden;
 }
 
-/* Book Container */
+/* Kitap Konteyneri ve Kitap Stili */
 .book-container {
-    width: 95vw;
-    height: 90vh;
+    width: 90vw;
+    height: 85vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .book {
-    width: 800px;
-    height: 600px;
+    width: 700px;
+    height: 500px;
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.5s;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* Page Styling */
+/* Sayfa Genel Stili */
 .page {
     width: 100%;
     height: 100%;
@@ -47,13 +41,11 @@ body {
     left: 0;
     transform-origin: left;
     transform-style: preserve-3d;
-    transition: transform 1s ease-in-out;
+    transition: transform 1.2s cubic-bezier(0.65, 0, 0.35, 1);
     background-color: #fff;
-    border: 1px solid #e0e0e0;
 }
 
-.page .front-page,
-.page .back-page {
+.front-page, .back-page {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -61,155 +53,146 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
+    padding: 2.5rem;
+    background: #fffafa;
 }
 
-.page .front-page {
-    background-color: #fdfaf6;
-    z-index: 1;
-}
-
-.page .back-page {
-    background-color: #fdfaf6;
+.back-page {
     transform: rotateY(180deg);
-    z-index: 0;
 }
 
-/* Flipped State */
+/* Sayfa Çevirme Animasyonu */
 .flipped {
     transform: rotateY(-180deg);
 }
 
-/* Cover Page (Page 1) */
-.cover .front-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+/* Sayfa 1: Kapak Tasarımı */
+.cover {
+    position: relative;
+    overflow: hidden;
+}
+
+.cover-text {
     text-align: center;
+    color: #4a148c;
+    z-index: 10;
 }
 
-.cover h1 {
-    font-family: 'Great Vibes', cursive;
-    font-size: 3rem;
-    color: #583c5a;
-    max-width: 80%;
+.cover-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin: 0;
 }
 
-.cover-img {
-    position: absolute;
-    width: 120px;
-    height: auto;
-    border: 5px solid white;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    border-radius: 8px;
-}
-.cover-img.img1 { top: 10%; left: 15%; transform: rotate(-15deg); }
-.cover-img.img2 { bottom: 12%; left: 30%; transform: rotate(5deg); }
-.cover-img.img3 { top: 20%; right: 15%; transform: rotate(20deg); }
-
-
-/* Message Page (Page 2) */
-.message-content {
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    font-family: 'Dancing Script', cursive;
-    font-size: 1.5rem;
-    line-height: 1.8;
-    color: #4a4a4a;
-    padding-right: 15px; /* for scrollbar */
-}
-.message-content p {
-    margin-bottom: 1.5rem;
-}
-/* Custom scrollbar for message */
-.message-content::-webkit-scrollbar { width: 8px; }
-.message-content::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px;}
-.message-content::-webkit-scrollbar-thumb { background: #ce93d8; border-radius: 10px;}
-.message-content::-webkit-scrollbar-thumb:hover { background: #ba68c8; }
-
-/* Day Counter Page (Page 3) */
-.counter-page {
-    flex-direction: column;
-    text-align: center;
-}
-.counter-page h2 {
-    font-family: 'Great Vibes', cursive;
-    font-size: 2.8rem;
-    color: #583c5a;
-    margin-bottom: 2rem;
-}
-.counter-page p {
+.cover-text p {
     font-family: 'Dancing Script', cursive;
     font-size: 2rem;
-    color: #d81b60;
+    margin-top: 10px;
 }
 
-/* Back Page Pattern */
-.love-pattern {
+.scattered-photo {
+    position: absolute;
+    width: 130px;
+    height: auto;
+    border: 8px solid white;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+    border-radius: 4px;
+}
+
+.photo1 { top: 15%; left: 10%; transform: rotate(-20deg); }
+.photo2 { bottom: 10%; right: 15%; transform: rotate(15deg); }
+.photo3 { top: 40%; right: 8%; transform: rotate(25deg); }
+
+/* Sayfa 2: Uzun Mesaj */
+.long-message {
     width: 100%;
     height: 100%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250' viewBox='0 0 200 200'%3E%3Ctext x='10' y='30' font-family='Dancing Script, cursive' font-size='20' fill='rgba(0,0,0,0.08)' transform='rotate(-20 50 50)'%3ELove you%3C/text%3E%3Ctext x='110' y='130' font-family='Dancing Script, cursive' font-size='20' fill='rgba(0,0,0,0.08)' transform='rotate(-20 150 150)'%3ELove you%3C/text%3E%3C/svg%3E");
-    background-color: #fdfaf6;
+    overflow-y: auto; /* Metin taşarsa kaydırma çubuğu çıkar */
+    color: #333;
+    font-size: 1.1rem;
+    line-height: 1.8;
 }
 
+.long-message h2 {
+    font-family: 'Dancing Script', cursive;
+    color: #c2185b;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
 
-/* Navigation */
+/* Sayfa 3: Gün Sayacı */
+.counter-page-content {
+    flex-direction: column;
+    text-align: center;
+}
+
+.counter-page-content h2 {
+    font-family: 'Playfair Display', serif;
+    color: #4a148c;
+    font-size: 2.2rem;
+}
+
+#day-counter {
+    font-family: 'Dancing Script', cursive;
+    color: #c2185b;
+    font-size: 2.5rem;
+    margin-top: 1rem;
+}
+
+/* Arka Sayfa "Love You" Deseni */
+.pattern-text {
+    width: 100%;
+    height: 100%;
+    background-color: #fffafa;
+    /* SVG ile dinamik desen oluşturma */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280' viewBox='0 0 200 200'%3E%3Cstyle%3Etext { font-family: 'Dancing Script', cursive; font-size: 24px; fill: rgba(0,0,0,0.07); }%3C/style%3E%3Ctext x='10' y='40' transform='rotate(-25 50 50)'%3ELove you%3C/text%3E%3Ctext x='100' y='150' transform='rotate(-25 150 150)'%3ELove you%3C/text%3E%3C/svg%3E");
+}
+
+/* Navigasyon Butonları */
 .navigation {
-    margin-top: 20px;
-    z-index: 1000;
+    margin-top: 25px;
+    z-index: 100;
 }
 
 .navigation button {
-    padding: 12px 25px;
+    padding: 10px 20px;
     border: none;
-    background-color: #ab47bc;
+    background-color: #ad1457;
     color: white;
     font-size: 1rem;
-    font-weight: bold;
-    border-radius: 25px;
+    font-family: 'Playfair Display', serif;
+    border-radius: 5px;
     cursor: pointer;
     margin: 0 10px;
-    transition: background-color 0.3s, transform 0.2s;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
 }
 
 .navigation button:hover {
-    background-color: #9c27b0;
+    background-color: #880e4f;
     transform: translateY(-2px);
 }
+
 .navigation button:disabled {
-    background-color: #cccccc;
+    background-color: #c7c7c7;
     cursor: not-allowed;
-    transform: translateY(0);
+    transform: none;
 }
 
-
-/* Mobile Responsiveness */
-@media (max-width: 850px) {
+/* Mobil Uyum (Responsive Tasarım) */
+@media (max-width: 768px) {
     .book {
-        width: 90vw;
-        height: 70vh;
+        width: 95vw;
+        height: 75vh;
     }
-
-    .cover h1 {
-        font-size: 1.8rem;
+    .front-page, .back-page {
+        padding: 1.5rem;
     }
-
-    .cover-img {
-        width: 80px;
-    }
-
-    .message-content {
-        font-size: 1.1rem;
-        line-height: 1.7;
-    }
-    
-    .counter-page h2 {
-        font-size: 2rem;
-    }
-    .counter-page p {
-        font-size: 1.5rem;
-    }
+    .cover-text h1 { font-size: 1.8rem; }
+    .cover-text p { font-size: 1.5rem; }
+    .scattered-photo { width: 90px; border-width: 5px; }
+    .long-message { font-size: 0.9rem; line-height: 1.7; }
+    .long-message h2 { font-size: 2rem; }
+    .counter-page-content h2 { font-size: 1.8rem; }
+    #day-counter { font-size: 2rem; }
 }
