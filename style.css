@@ -1,141 +1,140 @@
-/* ----- RESET & TEMEL ----- */
+/* Genel */
 * { box-sizing: border-box; }
 html, body { height: 100%; }
 body {
   margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  color: #111;
+  font-family: "Segoe UI", sans-serif;
   background: radial-gradient(1200px 600px at 50% 10%, #ffeef7, #ffdfe9 45%, #ffd8e6 65%, #ffd1e1 85%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
-/* Orta konumlandırma */
-.stage {
-  min-height: 100%;
-  padding: 28px 16px 18px;
-  display: grid;
-  place-items: center;
-  gap: 14px;
-}
-
-/* ----- KİTAP GÖVDE ----- */
+/* Kitap */
 .book {
   position: relative;
-  width: min(980px, 94vw);
-  height: min(680px, 78vh);
-  background: #fff7f1;
-  border-radius: 18px;
-  box-shadow: 0 18px 48px rgba(0,0,0,.16);
-  overflow: hidden;
-  perspective: 2000px;         /* 3D derinlik */
+  width: min(95vw, 900px);
+  height: min(80vh, 650px);
+  perspective: 2000px;
 }
 
-/* Cilt efekti (sol yarı) istenirse bu alan bırakılabilir */
-.book::before {
-  content: "";
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 50%;
-  background: linear-gradient(90deg, #f5eee7, #fff7f1);
-}
-
-/* ----- HER YAPRAK (SAYFA) ----- */
 .sheet {
   position: absolute;
-  top: 0; bottom: 0;
-  right: 0;                   /* sağdan sola çevrilen sayfa */
   width: 50%;
+  height: 100%;
+  right: 0;
   transform-origin: left center;
   transform-style: preserve-3d;
-  transition: transform .9s cubic-bezier(.2,.8,.2,1);
+  transition: transform 1.2s cubic-bezier(.77,0,.18,1);
 }
 
-/* çevrilmiş sayfa */
 .sheet.flipped { transform: rotateY(-180deg); }
 
-/* yüzler */
 .page {
-  position: absolute; inset: 0;
-  backface-visibility: hidden;   /* ters yazı görünmesin */
-  border-left: 1px solid #f0e7df;
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  background: #fff;
+  overflow-y: auto;
 }
 
-/* ön yüz (içerik burada) */
+/* Ön yüz */
 .page.front {
-  background: #fff;
-  display: grid;
-  align-items: start;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-/* arka yüz: BOŞ kağıt */
+/* Arka yüz -> "Love you" deseni */
 .page.back {
-  background: #fff;
   transform: rotateY(180deg);
-}
-
-/* sayfa iç boşluk */
-.padded { padding: clamp(18px, 2.6vw, 28px); }
-.reading { line-height: 1.75; font-size: clamp(15px, 1.5vw, 18px); text-align: justify; }
-.last { text-align: center; }
-
-/* Başlıklar */
-.headline {
-  margin: 0 0 14px;
-  font-weight: 900;
-  line-height: 1.2;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 90px,
+    #fce6ef 90px,
+    #fce6ef 180px
+  );
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent 0,
+    transparent 80px,
+    #fce6ef 80px,
+    #fce6ef 160px
+  );
+  font-family: 'Dancing Script', cursive;
+  color: rgba(255, 0, 102, 0.12);
+  font-size: 40px;
   text-align: center;
-  font-size: clamp(22px, 3.4vw, 40px);
+  line-height: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-h2 {
-  margin: 0 0 10px;
-  font-size: clamp(18px, 2.2vw, 26px);
+.page.back::before {
+  content: "Love you Love you Love you Love you Love you";
+  white-space: pre-wrap;
+  transform: rotate(-20deg);
 }
 
-/* ilk sayfa – kolaj */
-.collage { position: relative; height: min(440px, 56vh); margin-top: 6px; }
-.ph{
-  position: absolute; max-width: 44%;
-  border-radius: 14px;
-  box-shadow: 0 16px 26px rgba(0,0,0,.18);
-  background: #fff;
+/* İçerikler */
+.headline {
+  text-align: center;
+  font-size: clamp(22px, 3vw, 36px);
+  margin-bottom: 20px;
 }
-.ph1{ left: 3%;  top: 8%;  transform: rotate(-8deg); }
-.ph2{ right: 4%; top: 9%;  transform: rotate(9deg); }
-.ph3{ left: 8%;  bottom: 6%; transform: rotate(7deg); }
-.ph4{ right: 6%; bottom: 5%; transform: rotate(-11deg); }
-
-.tap-hint{ text-align:center; color:#6b6b6b; font-size: 13px; margin-top: 10px; }
-
-/* son sayfa görseli */
-.single-photo img{
-  width: min(360px, 70%);
-  border-radius: 16px;
-  box-shadow: 0 16px 26px rgba(0,0,0,.18);
+.collage {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.collage img {
+  width: 100%;
+  border-radius: 10px;
+}
+.reading {
+  font-size: clamp(14px, 2.5vw, 17px);
+  line-height: 1.6;
+  text-align: justify;
+}
+.single-photo img {
+  max-width: 80%;
+  border-radius: 12px;
 }
 
 /* Sayaç */
-.counter{
-  font-weight: 800;
-  font-size: clamp(16px, 2vw, 22px);
-  margin: 4px 0 16px;
+.counter {
+  font-weight: 700;
+  font-size: 18px;
+  margin: 10px 0 20px;
 }
-.counter::before, .counter::after{ content: "🤍"; margin: 0 10px; }
+.counter::before, .counter::after {
+  content: "🤍";
+  margin: 0 10px;
+}
 
-/* ----- NAV ----- */
-.nav{
-  display: flex; align-items: center; gap: 12px;
+/* Nav */
+.nav {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
 }
-.nav button{
-  border: 0; background:#111; color:#fff;
-  font-weight: 800; border-radius: 12px;
-  padding: 10px 16px; cursor: pointer;
+.nav button {
+  border: none;
+  background: #ff5fa2;
+  color: #fff;
+  border-radius: 50%;
+  padding: 12px 18px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform .2s;
 }
-.nav button:disabled{ opacity: .35; cursor: default; }
-.dots{ display: flex; gap: 7px; }
-.dots .dot{ width: 8px; height: 8px; border-radius: 50%; background:#d8d8d8; }
-.dots .dot.active{ background:#111; }
-
-/* daha küçük ekranlarda hafif küçült */
-@media (max-width: 560px){
-  .book{ height: 72vh; }
-  .collage{ height: 44vh; }
-}
+.nav button:hover { transform: scale(1.1); }
+.dots { display: flex; gap: 6px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background:#ddd; }
+.dot.active { background:#ff5fa2; }
