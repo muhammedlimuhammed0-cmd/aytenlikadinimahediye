@@ -1,75 +1,71 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>İyi ki Varsın</title>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doğum Günün Kutlu Olsun!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 <body>
-  <main class="stage">
-    <section class="book" id="book" aria-live="polite">
-      <!-- SAYFA 1 -->
-      <div class="sheet" data-sheet="1" style="z-index: 3;">
-        <div class="page front">
-          <div class="padded">
-            <h1 class="headline">
-              DÜNYANIN EN GÜZEL SEVGİLİSİNE,<br>İYİ Kİ VARSIN HAYATIM 🤍
-            </h1>
-            <div class="collage">
-              <img class="ph ph1" src="images/dogum gunu 2.png" alt="foto1">
-              <img class="ph ph2" src="images/dogum gunu 3.jpg" alt="foto2">
-              <img class="ph ph3" src="images/dogum gunu 4.jpg" alt="foto3">
-              <img class="ph ph4" src="images/d895d152858067f48a8c18ccd67c3afa.jpg" alt="foto4">
+
+    <div class="book-container">
+        <div class="book">
+            <div class="page cover" id="page-1">
+                <div class="front-page">
+                    <img src="images/dogum_gunu_1.jpg" alt="Anı 1" class="cover-img img1">
+                    <img src="images/dogum_gunu_2.png" alt="Anı 2" class="cover-img img2">
+                    <img src="images/dogum_gunu_3.jpg" alt="Anı 3" class="cover-img img3">
+                    <h1>DÜNYANIN EN GÜZEL SEVGİLİSİNE, İYİ Kİ VARSIN HAYATIM 🤍</h1>
+                </div>
+                <div class="back-page">
+                    <div class="love-pattern"></div>
+                </div>
             </div>
-            <p class="tap-hint">sayfayı çevirmek için ➜</p>
-          </div>
-        </div>
-        <div class="page back"></div>
-      </div>
 
-      <!-- SAYFA 2 -->
-      <div class="sheet" data-sheet="2" style="z-index: 2;">
-        <div class="page front">
-          <div class="padded reading">
-            <h2>İyi ki varsın</h2>
-            <p>
-              Güzelim büyük ihtimalle bu mesajın ne için olduğunu tahmin ediyorsundur belki yanında olamıyorum bu günde ama en azından uzaktanda olsa kutlamak istedim doğum günün kutlu olsun bebeğim benim birlikte olduğumuz 284. günümüz belkide en özel olanı çünkü bu güne kadar yaşadıklarımızı düşündükçe senin yanımda oluşun bana verdiğin güç ve bizim sevgimizin her şeye rağmen ayakta kalışı geliyor aklıma.
-            </p>
-            <p>
-              Biz kavgalar yaşadık, yanlış anlaştık, kırıldık ama sonunda yine birbirimize döndük çünkü kalplerimiz her defasında birbirini seçti. İki defa ayrıldık ama ikimiz de biliyorduk ki bu hikaye burada bitmeyecek. Sen bana sadece sevgili değil, en büyük dost, en sağlam destek oldun.
-            </p>
-            <p>
-              Mesafeler kolay değil; sana sarılmayı, gözlerinin içine bakmayı çok isterdim ama biz mesafeyle de sınandık ve gördük ki sevgimiz daha da büyüyor…
-            </p>
-          </div>
-        </div>
-        <div class="page back"></div>
-      </div>
-
-      <!-- SAYFA 3 -->
-      <div class="sheet" data-sheet="3" style="z-index: 1;">
-        <div class="page front">
-          <div class="padded last">
-            <h2>Seninle Geçen Her Gün Armağan</h2>
-            <p id="counter" class="counter">…</p>
-            <div class="single-photo">
-              <img src="images/dogum gunu 3.jpg" alt="özel foto">
+            <div class="page" id="page-2">
+                <div class="front-page">
+                    <div class="message-content">
+                        <p>Güzelim, büyük ihtimalle bu mesajın ne için olduğunu tahmin ediyorsundur.</p>
+                        <p>Belki yanında olamıyorum bu günde ama en azından uzaktan da olsa kutlamak istedim.</p>
+                        <p>Doğum günün kutlu olsun bebeğim benim. Birlikte olduğumuz 284. günümüz belki de en özel olanı.</p>
+                        <p>Çünkü bu güne kadar yaşadıklarımızı düşündükçe senin yanımda oluşun, bana verdiğin güç ve sevgimizin her şeye rağmen ayakta kalışı geliyor aklıma. Biz kavgalar yaşadık, yanlış anlaştık, kırıldık ama sonunda yine birbirimize döndük. Çünkü kalplerimiz her defasında birbirini seçti.</p>
+                        <p>İki defa ayrıldık ama ikimiz de biliyorduk ki bu hikaye burada bitmeyecek.</p>
+                        <p>Ben seninle yaşadığım her anın kıymetini anladım. Sen benim hayatımda karşıma çıkan en değerli şey oldun.</p>
+                        <p>Hastalığımda bana verdiğin desteği asla unutmam. Yanımda değildin belki ama varlığını hissettirdin, bana güç verdin, pes etmemi engelledin. Sen bana sadece sevgili değil, en büyük dost, en sağlam destek oldun.</p>
+                        <p>Mesafeler kolay değil, biliyorum. Sana sarılmayı, gözlerinin içine bakmayı çok isterdim.</p>
+                        <p>Ama biz mesafeyle de sınandık ve sevgimiz daha da büyüdü. Uzaklık bizi zayıflatmadı, tam tersine güçlendirdi.</p>
+                        <p>Bugün doğum günün ve ben sana sadece 'iyi ki doğdun' demek istemiyorum.</p>
+                        <p>İyi ki varsın, iyi ki yollarımız kesişti. İyi ki bana sevgiyi böylesine güçlü yaşattın.</p>
+                        <p>Benim dileğim bundan sonraki bütün doğum günlerini yanında geçirmek, sana sarılıp gözlerinin içine bakarak kutlamak. Biz kolay bir yol seçmedik ama her şeye rağmen buradayız, yan yanayız. Kalplerimiz birbirine bağlı.</p>
+                        <p>Doğum günün kutlu olsun bebeğim. Seni her şeyden çok seviyorum.</p>
+                    </div>
+                </div>
+                <div class="back-page">
+                     <div class="love-pattern"></div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="page back"></div>
-      </div>
-    </section>
 
-    <div class="nav">
-      <button id="prev" aria-label="Önceki sayfa">‹</button>
-      <div id="dots" class="dots"></div>
-      <button id="next" aria-label="Sonraki sayfa">›</button>
+            <div class="page" id="page-3">
+                <div class="front-page counter-page">
+                    <h2>Seninle Geçen Her Gün Bir Armağan</h2>
+                    <p id="day-counter">Hesaplanıyor...</p>
+                </div>
+                <div class="back-page">
+                    <div class="love-pattern"></div>
+                </div>
+            </div>
+
+             </div>
     </div>
-  </main>
 
-  <script src="script.js"></script>
+    <div class="navigation">
+        <button id="prev-btn">Önceki</button>
+        <button id="next-btn">Sonraki</button>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
